@@ -1,10 +1,10 @@
-package com.techupstudio.games.CyberBullyingAwarenessGame.Base.ProfanityChecker;
+package com.techupstudio.profanity_checker.base;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.techupstudio.games.CyberBullyingAwarenessGame.Base.ProfanityChecker.ProfanityFilter.prepareWord;
+import static com.techupstudio.profanity_checker.base.ProfanityFilter.prepareWord;
+
 
 public class ProfanityPhraseFilter {
 
@@ -12,7 +12,7 @@ public class ProfanityPhraseFilter {
     private String sentence;
     private boolean matchFound;
 
-    public ProfanityPhraseFilter( Map<Character, List<String>> phrasesMap) {
+    public ProfanityPhraseFilter(Map<Character, List<String>> phrasesMap) {
         this.phrasesMap = phrasesMap;
         this.sentence = "";
         this.matchFound = false;
@@ -36,7 +36,7 @@ public class ProfanityPhraseFilter {
                 return null;
 
             if (strictMatch) {
-                return badWordsList.contains(word) ? word: null;
+                return badWordsList.contains(word) ? word : null;
             } else {
 
                 if (!p.equals(""))
@@ -55,7 +55,7 @@ public class ProfanityPhraseFilter {
                     } else if (word.length() > 6 && badWord.length() <= word.length() + (0.5 * word.length())) {
                         DoubleMetaphone doubleMetaphone = new DoubleMetaphone();
                         if (doubleMetaphone.isDoubleMetaphoneEqual(word, badWord)) {
-                            if (DoubleMetaphone.stringMatchScore(word, badWord) > 0.5f){
+                            if (DoubleMetaphone.stringMatchScore(word, badWord) > 0.5f) {
                                 return badWord;
                             }
                         }
@@ -81,7 +81,7 @@ public class ProfanityPhraseFilter {
 
             if (words.length > 1) {
 
-                for (int i=0; i < words.length; i++) {
+                for (int i = 0; i < words.length; i++) {
                     String w = words[i];
 
                     List<String> list = phrasesMap.get(w.charAt(0));
@@ -104,11 +104,10 @@ public class ProfanityPhraseFilter {
                                 }
                             }
 
-                            if (this.matchFound){
+                            if (this.matchFound) {
                                 return r;
                             }
-                        }
-                        else{
+                        } else {
                             break;
                         }
                     }

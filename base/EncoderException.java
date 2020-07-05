@@ -1,4 +1,4 @@
-package com.techupstudio.games.CyberBullyingAwarenessGame.Base.ProfanityChecker;
+package com.techupstudio.profanity_checker.base;
 
 public class EncoderException extends Exception {
     public EncoderException(String s) {

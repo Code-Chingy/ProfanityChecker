@@ -1,6 +1,6 @@
-package com.techupstudio.games.CyberBullyingAwarenessGame.Base.ProfanityChecker;
+package com.techupstudio.profanity_checker.base;
 
-import com.techupstudio.utils.GeneralUtils.Funcs;
+import com.techupstudio.utils.general.Funcs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +12,11 @@ import java.util.Map;
 
 public class BadWordFilterer {
 
-    private BadWordFilterer(){}
-
     static Map<String, String[]> words = new HashMap<>();
-
     static int largestWordLength = 0;
+
+    private BadWordFilterer() {
+    }
 
     public static void loadConfigs() {
         try {
@@ -58,6 +58,7 @@ public class BadWordFilterer {
     /**
      * Iterates over a String input and checks whether a cuss word was found in a list,
      * then checks if the word should be ignored (e.g. bass contains the word *ss).
+     *
      * @param input
      * @return
      */
