@@ -4,7 +4,6 @@ import com.techupstudio.profanity_checker.base.ProfanityFilter;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class Test {
